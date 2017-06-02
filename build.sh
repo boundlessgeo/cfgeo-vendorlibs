@@ -168,6 +168,12 @@ cd gdal-$gdal_ver/
 make
 make install
 
+echo 'export GDAL_DATA="/app/.heroku/vendor/share/gdal"' >> $vendor/cfgeo.sh
+echo 'export PROJ_LIB="/app/.heroku/vendor/share/proj"' >> $vendor/cfgeo.sh
+echo 'export GEOS_LIBRARY_PATH="/app/.heroku/vendor/lib"' >> $vendor/cfgeo.sh
+echo 'export PATH="/app/.heroku/vendor/bin":"${PATH}"' >> $vendor/cfgeo.sh
+echo 'export LD_LIBRARY_PATH="/app/.heroku/vendor/lib":"${LD_LIBRARY_PATH}"' >> $vendor/cfgeo.sh
+
 rm -fr $vendor/include/boost
 find $vendor/lib -type f -name '*.a' -exec rm -f {} +
 find $vendor/lib -type f -name '*.la' -exec rm -f {} +
