@@ -25,11 +25,11 @@ _Note: build requires docker to build the vendorlibs!_
 ```
 docker run -v $PWD:/build -it cloudfoundry/cflinuxfs2:1.46.0 /build/build.sh
 ```
-This will result in a "cfgeo-vendorlibs._version-number_.cflinuxfs2.x86_64.tar.gz" being
+This will result in a archive "cfgeo-vendorlibs.\*.cflinuxfs2.x86_64.tar.gz" being
 created in the root of the repo directory.
 
 ## usage steps
 
-+ extract the contents of "cfgeo-vendorlibs._version-number_.cflinuxfs2.x86_64.tar.gz" to `$REPO_ROOT/cf/vendor`
-+ use `buildpack: https://github.com/BerryDaniel/python-buildpack#v1.5.12_vendor` in your manifest.yml
++ add the archive "cfgeo-vendorlibs._version-number_.cflinuxfs2.x86_64.tar.gz" to the `$REPO_ROOT/cf/vendor` of your app you will push to cf.
++ use `https://github.com/BerryDaniel/python-buildpack#v1.5.13_vendor` for the `buildpack:` entry in your manifest.yml
 + push your app to cloudfoundry
